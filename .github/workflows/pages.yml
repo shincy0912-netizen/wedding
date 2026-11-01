@@ -21,11 +21,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: 멈춘 이전 배포 정리
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh api -X POST repos/${{ github.repository }}/pages/deployments/8292f3f0bed488014ae359f93c5accf8057f76a2/cancel || true
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
