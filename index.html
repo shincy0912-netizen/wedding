@@ -344,9 +344,9 @@ var RSVP_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSc7h8CQqF88eNU5bpTkrGZw
   // 갤러리 + 크게 보기
   var gal=document.getElementById('gal'),srcs=[];
   for(var g=1;g<=GALLERY_COUNT;g++){
-    var n=String(g).padStart(2,'0'),src='images/'+n+'.jpg?v=3';srcs.push(src);
+    var n=String(g).padStart(2,'0'),src='images/'+n+'.jpg?v=5';srcs.push(src);
     var b=document.createElement('button');b.type='button';b.dataset.i=g-1;b.setAttribute('aria-label',g+'번 사진 크게 보기');
-    b.innerHTML='<span>'+g+'</span><img src="images/t_'+n+'.jpg?v=3" alt="" loading="lazy" onerror="this.remove()">';
+    b.innerHTML='<span>'+g+'</span><img src="images/t_'+n+'.jpg?v=5" alt="" loading="lazy" onerror="this.remove()">';
     gal.appendChild(b);
   }
   var viewer=document.getElementById('viewer'),vimg=document.getElementById('vimg'),vidx=document.getElementById('vidx'),cur=0,tx=null;
