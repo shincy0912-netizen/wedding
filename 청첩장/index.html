@@ -8,7 +8,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="봄날, 우리 결혼합니다">
 <meta property="og:description" content="2027년 3월 7일 일요일 · 상록아트홀">
-<meta property="og:image" content="https://shincy0912-netizen.github.io/wedding/%EC%B2%AD%EC%B2%A9%EC%9E%A5/og.png">
+<meta property="og:image" content="https://shincy0912-netizen.github.io/wedding/%EC%B2%AD%EC%B2%A9%EC%9E%A5/og.jpg">
 <meta property="og:url" content="https://shincy0912-netizen.github.io/wedding/%EC%B2%AD%EC%B2%A9%EC%9E%A5/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,20 +39,14 @@ p{margin:0}
 .reveal.hide{opacity:0;transform:translateY(24px)}
 
 /* 표지: 화면 가득 사진 + 아래 글씨 */
-.cover{position:relative;height:100svh;min-height:560px;max-height:900px;padding:0;color:#fff;background:#3a3a37}
-.cover .photo{position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent 0 11px,rgba(255,255,255,.08) 11px 12px),#3a3a37}
+.cover{position:relative;padding:0;background:var(--paper);color:var(--ink)}
+.cover .photo{position:relative;aspect-ratio:1696/2528;max-width:100%;background:var(--wash)}
 .cover .photo img{width:100%;height:100%;object-fit:cover}
-.cover .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%)}
-.cover .ph-note{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:12px;letter-spacing:.08em;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.4);padding:6px 14px;white-space:nowrap}
-.cover .top{position:absolute;top:calc(36px + env(safe-area-inset-top,0px));left:0;right:0;font-family:var(--latin);font-size:15px;letter-spacing:.42em}
-.cover .bottom{position:absolute;left:0;right:0;bottom:calc(48px + env(safe-area-inset-bottom,0px));display:grid;gap:12px;padding:0 24px}
-.cover .bigdate{font-family:var(--latin);font-weight:400;font-size:54px;line-height:1;letter-spacing:.06em}
-.cover .bigdate i{font-style:italic;font-size:.6em;vertical-align:.25em;margin:0 .15em;opacity:.85}
-.cover h1{font-family:var(--serif);font-weight:400;font-size:21px;letter-spacing:.08em;margin:6px 0 0}
-.cover .meta{font-size:13px;opacity:.9}
-.cover .meta .ph{color:#fff;border-color:rgba(255,255,255,.7)}
-.scroll{position:absolute;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));width:1px;height:26px;background:rgba(255,255,255,.6);animation:drop 2s infinite}
-@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.cover .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(251,251,249,.55) 0%,rgba(251,251,249,0) 26%)}
+.cover .head{position:absolute;z-index:1;top:calc(26px + env(safe-area-inset-top,0px));left:0;right:0;display:grid;gap:8px;padding:0 24px}
+.cover .bigdate{font-family:var(--latin);font-weight:400;font-size:46px;line-height:1;letter-spacing:.06em}
+.cover .bigdate i{font-style:italic;font-size:.6em;vertical-align:.25em;margin:0 .15em;color:var(--ink-2)}
+.cover h1{font-family:var(--serif);font-weight:400;font-size:20px;letter-spacing:.08em;margin:0}
 
 /* 이름 */
 .names{font-family:var(--serif);font-size:20px;letter-spacing:.14em;display:flex;justify-content:center;align-items:center;gap:16px}
@@ -97,10 +91,9 @@ p{margin:0}
 
 /* 갤러리 */
 .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
-.gal button{appearance:none;border:0;padding:0;margin:0;aspect-ratio:1;background:var(--wash);position:relative;cursor:zoom-in;overflow:hidden;font-family:var(--latin);color:var(--ph);font-size:15px}
+.gal button{appearance:none;border:0;padding:0;margin:0;aspect-ratio:2/3;background:var(--wash);position:relative;cursor:zoom-in;overflow:hidden;font-family:var(--latin);color:var(--ph);font-size:15px}
 .alt .gal button{background:#e4e4e0}
 .gal button img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.gal button:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
 .note{margin-top:14px;font-size:12.5px;color:var(--ink-3)}
 
 /* 오시는 길 */
@@ -136,12 +129,9 @@ details[open] summary::after{content:"−"}
 .acct .btn{padding:6px 10px;font-size:12px;flex:none}
 
 /* 전세버스 */
-.charter{margin:-8px 0 26px;border:1px solid var(--ink);text-align:left;font-size:13.5px}
-.charter-h{background:var(--ink);color:var(--paper);padding:8px 14px;font-weight:400;letter-spacing:.04em}
-.charter-r{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:8px;padding:10px 14px;align-items:baseline}
-.charter-r+.charter-r{border-top:1px solid var(--rule)}
-.charter-r span:first-child{font-weight:500}
-.charter-r b{font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bus{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:10px;row-gap:2px;margin-top:6px}
+.bus b{font-weight:500}
+.bus span{font-variant-numeric:tabular-nums}
 /* 마무리 */
 .wreath{margin-top:28px;font-family:var(--sans)!important;font-size:12.5px!important;color:var(--ink-3)!important;letter-spacing:.04em}
 .btns.small{margin-top:12px}
@@ -160,6 +150,8 @@ footer{padding:28px 16px 40px;text-align:center;font-family:var(--latin);font-si
 .person .role{font-size:12px;color:var(--ink-3);margin-right:2px}
 .person .num{font-size:13px;margin-top:2px;display:table}
 .mini{appearance:none;background:var(--paper);font:inherit;cursor:pointer}
+.person .acts .ico{width:36px;height:36px;padding:0;display:inline-flex;align-items:center;justify-content:center;border-radius:50%}
+.person .acts .ico svg{width:17px;height:17px;fill:none;stroke:var(--ink);stroke-width:1.4;stroke-linejoin:round}
 .person .acts a,.person .acts .mini{border:1px solid var(--rule);padding:5px 10px;font-size:12px;color:var(--ink);text-decoration:none}
 .close{margin-top:20px}
 .viewer{position:fixed;inset:0;z-index:60;background:#111;display:flex;align-items:center;justify-content:center}
@@ -173,22 +165,19 @@ footer{padding:28px 16px 40px;text-align:center;font-family:var(--latin);font-si
 .toast{position:fixed;left:50%;bottom:calc(28px + env(safe-area-inset-bottom,0px));transform:translate(-50%,12px);background:var(--ink);color:var(--paper);font-size:13px;padding:9px 16px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:70}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 [hidden]{display:none!important}
-@media (prefers-reduced-motion:reduce){.reveal,.toast{transition:none}.scroll{animation:none}}
+@media (prefers-reduced-motion:reduce){.reveal,.toast{transition:none}}
 </style>
 </head>
 <body>
 <div class="paper">
 
-<!-- 표지: 사진은 images/cover.jpg 로 올리면 자동으로 표시됩니다 -->
+<!-- 표지: images/cover.jpg -->
 <section class="cover">
-  <div class="photo"><span class="ph-note">첫 화면 사진 자리</span><img src="images/cover.jpg" alt="" onerror="this.remove()" onload="this.previousElementSibling.remove()"></div>
-  <div class="top">WEDDING DAY</div>
-  <div class="bottom">
+  <div class="photo"><img src="images/cover.jpg" alt="제주 바닷가 모래 위에 27.3.7을 적고 앉아 있는 신랑 신부"></div>
+  <div class="head">
     <div class="bigdate">03<i>/</i>07</div>
     <h1>봄날, 우리 결혼합니다</h1>
-    <div class="meta">2027. 3. 7. 일요일 오후 1시 40분 · 상록아트홀</div>
   </div>
-  <span class="scroll" aria-hidden="true"></span>
 </section>
 
 <section class="reveal">
@@ -222,7 +211,7 @@ footer{padding:28px 16px 40px;text-align:center;font-family:var(--latin);font-si
 <!-- 갤러리: images/01.jpg ~ 06.jpg 로 올리면 자동으로 표시됩니다 -->
 <section class="alt reveal">
   <h2>Gallery</h2>
-  <p class="h2-ko">우리의 봄</p>
+  <p class="h2-ko">제주에서 담은 우리</p>
   <div class="gal" id="gal"></div>
   <p class="note">사진을 누르면 크게 볼 수 있어요</p>
 </section>
@@ -278,11 +267,6 @@ footer{padding:28px 16px 40px;text-align:center;font-family:var(--latin);font-si
     <text x="520" y="243" font-size="16" font-weight="700">선릉역 5번 출구</text>
   </svg>
   </div>
-  <div class="charter">
-    <div class="charter-h">경주 · 대구 하객 전세버스</div>
-    <div class="charter-r"><span>경주</span><span>황성공원 주차장</span><b>오전 7:00 출발</b></div>
-    <div class="charter-r"><span>대구</span><span>용산역 홈플러스 앞</span><b>오전 8:30 출발</b></div>
-  </div>
   <p class="venue">상록아트홀 5층 아트홀<small>(서울상록회관)</small></p>
   <p class="addr">서울특별시 강남구 언주로 508<br>Tel. 02-564-5757</p>
   <div class="btns">
@@ -299,6 +283,8 @@ footer{padding:28px 16px 40px;text-align:center;font-family:var(--latin);font-si
       <div class="stop"><b>한국기술센터 · 상록회관 하차</b><br><span class="chip">간선</span>146, 341, 360, 740, N13, N61</div>
     </div></div>
     <div class="r"><div class="l">자가용</div><div class="c">내비게이션 ‘서울상록회관’ 또는 ‘언주로 508’ 입력<br><span class="sub">경부고속도로 양재IC 진입 후 양재대로에서 매봉터널, 강남세브란스병원 방면으로 직진</span></div></div>
+    <div class="r"><div class="l">전세버스</div><div class="c">경주·대구에서 오시는 분들을 위해 버스를 마련했습니다.
+      <div class="bus"><b>경주</b><span>황성공원 주차장 · 오전 7:00 출발</span><b>대구</b><span>용산역 홈플러스 앞 · 오전 8:30 출발</span></div></div></div>
     <div class="r"><div class="l">주차</div><div class="c">건물 내 주차 가능 · <span class="ph">무료 주차 시간 확인 필요</span></div></div>
   </div>
 </section>
@@ -327,35 +313,35 @@ footer{padding:28px 16px 40px;text-align:center;font-family:var(--latin);font-si
 <footer>2027 · 03 · 07</footer>
 </div>
 
-<!-- 연락하기: 전화번호는 num 칸과 tel:/sms: 뒤에 넣으세요 -->
+<!-- 연락하기 -->
 <div class="modal" id="contact" hidden>
   <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="ct-t">
     <h3 id="ct-t">연락하기</h3>
     <div class="grp">신랑측</div>
-    <div class="person"><div><span class="role">신랑</span> 권진우<div class="num ph">010-0000-0000</div></div><span class="acts"><a href="tel:" data-tel>전화</a><a href="sms:" data-sms>문자</a></span></div>
-    <div class="person"><div><span class="role">아버지</span> 권택주<div class="num ph">010-0000-0000</div></div><span class="acts"><a href="tel:" data-tel>전화</a><a href="sms:" data-sms>문자</a></span></div>
-    <div class="person"><div><span class="role">어머니</span> 최혜경<div class="num ph">010-0000-0000</div></div><span class="acts"><a href="tel:" data-tel>전화</a><a href="sms:" data-sms>문자</a></span></div>
+    <div class="person"><div><span class="role">신랑</span> 권진우<div class="num">010-2300-0206</div></div><span class="acts"><a class="ico" href="tel:01023000206" aria-label="권진우에게 전화하기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h2.6l1.4 4-2 1.3a11 11 0 0 0 6.6 6.6l1.3-2 4 1.4v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z"/></svg></a><a class="ico" href="sms:01023000206" aria-label="권진우에게 문자 보내기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-4 3.5V16H4z"/></svg></a></span></div>
+    <div class="person"><div><span class="role">아버지</span> 권택주<div class="num">010-8344-6000</div></div><span class="acts"><a class="ico" href="tel:01083446000" aria-label="권택주에게 전화하기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h2.6l1.4 4-2 1.3a11 11 0 0 0 6.6 6.6l1.3-2 4 1.4v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z"/></svg></a><a class="ico" href="sms:01083446000" aria-label="권택주에게 문자 보내기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-4 3.5V16H4z"/></svg></a></span></div>
+    <div class="person"><div><span class="role">어머니</span> 최혜경<div class="num">010-9626-2322</div></div><span class="acts"><a class="ico" href="tel:01096262322" aria-label="최혜경에게 전화하기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h2.6l1.4 4-2 1.3a11 11 0 0 0 6.6 6.6l1.3-2 4 1.4v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z"/></svg></a><a class="ico" href="sms:01096262322" aria-label="최혜경에게 문자 보내기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-4 3.5V16H4z"/></svg></a></span></div>
     <div class="grp">신부측</div>
-    <div class="person"><div><span class="role">신부</span> 신채영<div class="num ph">010-0000-0000</div></div><span class="acts"><a href="tel:" data-tel>전화</a><a href="sms:" data-sms>문자</a></span></div>
-    <div class="person"><div><span class="role">아버지</span> 신상우<div class="num ph">010-0000-0000</div></div><span class="acts"><a href="tel:" data-tel>전화</a><a href="sms:" data-sms>문자</a></span></div>
-    <div class="person"><div><span class="role">어머니</span> 박미희<div class="num ph">010-0000-0000</div></div><span class="acts"><a href="tel:" data-tel>전화</a><a href="sms:" data-sms>문자</a></span></div>
+    <div class="person"><div><span class="role">신부</span> 신채영<div class="num">010-5038-3113</div></div><span class="acts"><a class="ico" href="tel:01050383113" aria-label="신채영에게 전화하기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h2.6l1.4 4-2 1.3a11 11 0 0 0 6.6 6.6l1.3-2 4 1.4v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z"/></svg></a><a class="ico" href="sms:01050383113" aria-label="신채영에게 문자 보내기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-4 3.5V16H4z"/></svg></a></span></div>
+    <div class="person"><div><span class="role">아버지</span> 신상우<div class="num">010-7635-3117</div></div><span class="acts"><a class="ico" href="tel:01076353117" aria-label="신상우에게 전화하기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h2.6l1.4 4-2 1.3a11 11 0 0 0 6.6 6.6l1.3-2 4 1.4v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z"/></svg></a><a class="ico" href="sms:01076353117" aria-label="신상우에게 문자 보내기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-4 3.5V16H4z"/></svg></a></span></div>
+    <div class="person"><div><span class="role">어머니</span> 박미희<div class="num">010-8294-3115</div></div><span class="acts"><a class="ico" href="tel:01082943115" aria-label="박미희에게 전화하기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h2.6l1.4 4-2 1.3a11 11 0 0 0 6.6 6.6l1.3-2 4 1.4v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z"/></svg></a><a class="ico" href="sms:01082943115" aria-label="박미희에게 문자 보내기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-4 3.5V16H4z"/></svg></a></span></div>
     <button class="btn wide close" type="button" data-close>닫기</button>
   </div>
 </div>
 
-<!-- 마음 전하실 곳: 계좌번호는 num 칸과 data-copy 에 넣으세요 -->
+<!-- 마음 전하실 곳 -->
 <div class="modal" id="accounts" hidden>
   <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="ac-t">
     <h3 id="ac-t">마음 전하실 곳</h3>
     <p class="sheet-note">참석이 어려우신 분들을 위해 기재했습니다.<br>너그러운 마음으로 양해 부탁드립니다.</p>
     <div class="grp">신랑측</div>
-    <div class="person"><div><span class="role">신랑</span> 권진우<div class="num ph">은행 000-0000-0000</div></div><span class="acts"><button class="mini" type="button" data-copy="" data-msg="계좌번호를 복사했어요">복사</button></span></div>
-    <div class="person"><div><span class="role">아버지</span> 권택주<div class="num ph">은행 000-0000-0000</div></div><span class="acts"><button class="mini" type="button" data-copy="" data-msg="계좌번호를 복사했어요">복사</button></span></div>
-    <div class="person"><div><span class="role">어머니</span> 최혜경<div class="num ph">은행 000-0000-0000</div></div><span class="acts"><button class="mini" type="button" data-copy="" data-msg="계좌번호를 복사했어요">복사</button></span></div>
+    <div class="person"><div><span class="role">신랑</span> 권진우<div class="num">우리은행 1002-053-154894</div></div><span class="acts"><button class="mini" type="button" data-copy="우리은행 1002-053-154894" data-msg="권진우님 계좌번호를 복사했어요">복사</button></span></div>
+    <div class="person"><div><span class="role">아버지</span> 권택주<div class="num">우리은행 1002-637-979464</div></div><span class="acts"><button class="mini" type="button" data-copy="우리은행 1002-637-979464" data-msg="권택주님 계좌번호를 복사했어요">복사</button></span></div>
+    <div class="person"><div><span class="role">어머니</span> 최혜경<div class="num">KB국민은행 06224-0253-987</div></div><span class="acts"><button class="mini" type="button" data-copy="KB국민은행 06224-0253-987" data-msg="최혜경님 계좌번호를 복사했어요">복사</button></span></div>
     <div class="grp">신부측</div>
-    <div class="person"><div><span class="role">신부</span> 신채영<div class="num ph">은행 000-0000-0000</div></div><span class="acts"><button class="mini" type="button" data-copy="" data-msg="계좌번호를 복사했어요">복사</button></span></div>
-    <div class="person"><div><span class="role">아버지</span> 신상우<div class="num ph">은행 000-0000-0000</div></div><span class="acts"><button class="mini" type="button" data-copy="" data-msg="계좌번호를 복사했어요">복사</button></span></div>
-    <div class="person"><div><span class="role">어머니</span> 박미희<div class="num ph">은행 000-0000-0000</div></div><span class="acts"><button class="mini" type="button" data-copy="" data-msg="계좌번호를 복사했어요">복사</button></span></div>
+    <div class="person"><div><span class="role">신부</span> 신채영<div class="num">신한은행 110-404-040398</div></div><span class="acts"><button class="mini" type="button" data-copy="신한은행 110-404-040398" data-msg="신채영님 계좌번호를 복사했어요">복사</button></span></div>
+    <div class="person"><div><span class="role">아버지</span> 신상우<div class="num">iM뱅크 091-13-002317</div></div><span class="acts"><button class="mini" type="button" data-copy="iM뱅크 091-13-002317" data-msg="신상우님 계좌번호를 복사했어요">복사</button></span></div>
+    <div class="person"><div><span class="role">어머니</span> 박미희<div class="num">iM뱅크 091-08-0420973</div></div><span class="acts"><button class="mini" type="button" data-copy="iM뱅크 091-08-0420973" data-msg="박미희님 계좌번호를 복사했어요">복사</button></span></div>
     <button class="btn wide close" type="button" data-close>닫기</button>
   </div>
 </div>
@@ -373,7 +359,7 @@ footer{padding:28px 16px 40px;text-align:center;font-family:var(--latin);font-si
 
 <script>
 // ===== 여기만 바꾸면 됩니다 =====
-var GALLERY_COUNT = 6;          // images/01.jpg ~ 06.jpg
+var GALLERY_COUNT = 9;          // images/01.jpg ~ 09.jpg (썸네일 t_01.jpg ~)
 var RSVP_URL = '';              // 구글 폼 등 참석 여부 받을 주소
 // ===============================
 (function(){
@@ -402,7 +388,7 @@ var RSVP_URL = '';              // 구글 폼 등 참석 여부 받을 주소
   for(var g=1;g<=GALLERY_COUNT;g++){
     var n=String(g).padStart(2,'0'),src='images/'+n+'.jpg';srcs.push(src);
     var b=document.createElement('button');b.type='button';b.dataset.i=g-1;b.setAttribute('aria-label',g+'번 사진 크게 보기');
-    b.innerHTML='<span>'+g+'</span><img src="'+src+'" alt="" loading="lazy" onerror="this.remove()">';
+    b.innerHTML='<span>'+g+'</span><img src="images/t_'+n+'.jpg" alt="" loading="lazy" onerror="this.remove()">';
     gal.appendChild(b);
   }
   var viewer=document.getElementById('viewer'),vimg=document.getElementById('vimg'),vidx=document.getElementById('vidx'),cur=0,tx=null;
