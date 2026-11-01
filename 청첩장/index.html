@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>봄날, 우리 결혼합니다</title>
+<meta name="description" content="2027년 3월 7일 일요일 · 상록아트홀">
+<meta property="og:type" content="website">
+<meta property="og:title" content="봄날, 우리 결혼합니다">
+<meta property="og:description" content="2027년 3월 7일 일요일 · 상록아트홀">
+<meta property="og:image" content="https://shincy0912-netizen.github.io/wedding/%EC%B2%AD%EC%B2%A9%EC%9E%A5/og.png">
+<meta property="og:url" content="https://shincy0912-netizen.github.io/wedding/%EC%B2%AD%EC%B2%A9%EC%9E%A5/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Nanum+Myeongjo:wght@400;700&family=Noto+Sans+KR:wght@300;400;500&display=swap">
+<style>
+/* 한 줄 기둥(최대 440px) 무채색 레터프레스. 표지는 화면 가득, 아래로 섹션이 이어짐 */
+:root{
+  --paper:#fbfbf9; --ink:#1f1f1e; --ink-2:#55554f; --ink-3:#8b8b85;
+  --rule:#d9d9d4; --wash:#f1f1ee; --ph:#a3a39b;
+  --serif:'Nanum Myeongjo','Noto Serif KR',serif;
+  --sans:'Noto Sans KR','Apple SD Gothic Neo',sans-serif;
+  --latin:'Cormorant Garamond','Times New Roman',serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+html{background:#e9e9e6}
+body{background:#e9e9e6;color:var(--ink);font-family:var(--sans);font-weight:300;font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased;word-break:keep-all;-webkit-tap-highlight-color:transparent}
+img{max-width:100%;display:block}
+.paper{max-width:440px;margin:0 auto;background:var(--paper);overflow:hidden}
+section{padding:72px max(28px,env(safe-area-inset-left,0px)) 72px max(28px,env(safe-area-inset-right,0px));text-align:center}
+h2{font-family:var(--latin);font-weight:400;font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-3);margin:0 0 6px}
+.h2-ko{font-family:var(--serif);font-size:19px;font-weight:400;margin:0 0 32px}
+p{margin:0}
+.ph{color:var(--ph);border-bottom:1px dashed var(--ph)}
+.alt{background:var(--wash)}
+.reveal{transition:opacity .9s ease,transform .9s ease}
+.reveal.hide{opacity:0;transform:translateY(24px)}
+
+/* 표지: 화면 가득 사진 + 아래 글씨 */
+.cover{position:relative;height:100svh;min-height:560px;max-height:900px;padding:0;color:#fff;background:#3a3a37}
+.cover .photo{position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent 0 11px,rgba(255,255,255,.08) 11px 12px),#3a3a37}
+.cover .photo img{width:100%;height:100%;object-fit:cover}
+.cover .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%)}
+.cover .ph-note{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:12px;letter-spacing:.08em;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.4);padding:6px 14px;white-space:nowrap}
+.cover .top{position:absolute;top:calc(36px + env(safe-area-inset-top,0px));left:0;right:0;font-family:var(--latin);font-size:15px;letter-spacing:.42em}
+.cover .bottom{position:absolute;left:0;right:0;bottom:calc(48px + env(safe-area-inset-bottom,0px));display:grid;gap:12px;padding:0 24px}
+.cover .bigdate{font-family:var(--latin);font-weight:400;font-size:54px;line-height:1;letter-spacing:.06em}
+.cover .bigdate i{font-style:italic;font-size:.6em;vertical-align:.25em;margin:0 .15em;opacity:.85}
+.cover h1{font-family:var(--serif);font-weight:400;font-size:21px;letter-spacing:.08em;margin:6px 0 0}
+.cover .meta{font-size:13px;opacity:.9}
+.cover .meta .ph{color:#fff;border-color:rgba(255,255,255,.7)}
+.scroll{position:absolute;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));width:1px;height:26px;background:rgba(255,255,255,.6);animation:drop 2s infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* 이름 */
+.names{font-family:var(--serif);font-size:20px;letter-spacing:.14em;display:flex;justify-content:center;align-items:center;gap:16px}
+.names i{font-family:var(--latin);font-style:italic;color:var(--ink-3);font-size:20px}
+.namesub{margin-top:10px;font-size:13.5px;color:var(--ink-2)}
+
+/* 인사말 */
+.sprig{display:block;margin:0 auto 26px;width:28px;height:auto}
+.poem{font-family:var(--serif);font-size:15.5px;line-height:2.15}
+.family{margin-top:44px;display:grid;gap:10px;font-size:14.5px}
+.family .row{display:flex;justify-content:center;align-items:baseline;gap:6px;flex-wrap:wrap}
+.family .rel{color:var(--ink-3);font-size:13px}
+.family b{font-family:var(--serif);font-weight:700;font-size:16px;letter-spacing:.1em;margin-left:4px}
+
+/* 버튼 */
+.btns{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.btn{appearance:none;border:1px solid var(--ink);background:var(--paper);color:var(--ink);font:inherit;font-size:13.5px;font-weight:400;padding:10px 18px;cursor:pointer;text-decoration:none;line-height:1.3;border-radius:0;display:inline-flex;align-items:center;gap:6px}
+.btn:active{background:var(--ink);color:var(--paper)}
+.btn:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.btn.wide{width:100%;justify-content:center;padding:14px}
+.btn.fill{background:var(--ink);color:var(--paper)}
+.btn.ghost{border-color:var(--rule)}
+
+/* 달력 */
+.when{font-family:var(--serif);font-size:17px;line-height:1.9}
+.when small{display:block;font-family:var(--sans);font-size:13.5px;color:var(--ink-2)}
+.cal{margin:30px auto 0;max-width:300px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:16px 0}
+.cal-month{font-family:var(--latin);font-size:22px;letter-spacing:.2em;margin-bottom:10px}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);row-gap:6px;font-family:var(--latin);font-size:16px;font-variant-numeric:tabular-nums}
+.cal-grid .dow{font-family:var(--sans);font-size:11px;color:var(--ink-3);padding-bottom:4px}
+.cal-grid .sun{color:var(--ink-3)}
+.cal-grid .day{display:flex;align-items:center;justify-content:center;height:34px;position:relative}
+.cal-grid .on{color:var(--paper)}
+.cal-grid .on::before{content:"";position:absolute;width:32px;height:32px;border-radius:50%;background:var(--ink)}
+.cal-grid .on span{position:relative}
+.count{display:flex;justify-content:center;gap:18px;margin-top:26px}
+.count div{display:grid;min-width:46px}
+.count strong{font-family:var(--latin);font-weight:400;font-size:28px;line-height:1.2;font-variant-numeric:tabular-nums}
+.count em{font-style:normal;font-size:10.5px;letter-spacing:.14em;color:var(--ink-3)}
+.dday{margin-top:16px;font-size:14px;color:var(--ink-2)}
+.dday b{font-family:var(--latin);font-weight:500;font-size:20px;color:var(--ink);margin:0 2px}
+
+/* 갤러리 */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.gal button{appearance:none;border:0;padding:0;margin:0;aspect-ratio:1;background:var(--wash);position:relative;cursor:zoom-in;overflow:hidden;font-family:var(--latin);color:var(--ph);font-size:15px}
+.alt .gal button{background:#e4e4e0}
+.gal button img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.gal button:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.note{margin-top:14px;font-size:12.5px;color:var(--ink-3)}
+
+/* 오시는 길 */
+.map{margin:0 -8px 22px;background:#fff;border:1px solid var(--rule);padding:10px 6px}
+.map svg{display:block;width:100%;height:auto}
+.map svg text{font-family:var(--sans);fill:#333}
+.venue{font-family:var(--serif);font-size:18px;letter-spacing:.06em}
+.venue small{font-family:var(--sans);font-size:13px;color:var(--ink-3);margin-left:4px;letter-spacing:0}
+.addr{font-size:13.5px;color:var(--ink-2);margin-top:4px}
+.info{margin-top:32px;text-align:left;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.info .r{display:grid;grid-template-columns:64px minmax(0,1fr);gap:10px;padding:13px 2px;border-bottom:1px solid var(--rule);font-size:13.5px;line-height:1.7}
+.info .r:last-child{border-bottom:0}
+.info .l{font-weight:500;letter-spacing:.04em}
+.info .c b{font-weight:500}
+.info .stop+.stop{margin-top:6px}
+.info .sub{color:var(--ink-3);font-size:12.5px}
+.chip{display:inline-block;border:1px solid var(--ink);font-size:10.5px;padding:0 5px;line-height:1.5;margin-right:4px;vertical-align:1px}
+
+/* 참석 여부 */
+.rsvp-box{border:1px solid var(--ink);padding:28px 20px;background:var(--paper)}
+.rsvp-box p{font-size:14px;color:var(--ink-2);line-height:1.9}
+
+/* 계좌 */
+.acc{display:grid;gap:10px;text-align:left}
+details{border:1px solid var(--rule);background:var(--paper)}
+summary{list-style:none;cursor:pointer;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;font-size:14.5px;font-weight:400}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--latin);font-size:22px;line-height:1;color:var(--ink-3)}
+details[open] summary::after{content:"−"}
+.acct{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 16px;border-top:1px solid var(--rule);background:var(--wash)}
+.acct div{min-width:0;font-size:13.5px;line-height:1.6}
+.acct .who{font-size:12px;color:var(--ink-3)}
+.acct .btn{padding:6px 10px;font-size:12px;flex:none}
+
+/* 마무리 */
+.end p{font-family:var(--serif);font-size:14.5px;line-height:2;color:var(--ink-2)}
+footer{padding:28px 16px 40px;text-align:center;font-family:var(--latin);font-size:12px;letter-spacing:.2em;color:var(--ink-3)}
+
+/* 모달 */
+.modal{position:fixed;inset:0;z-index:50;background:rgba(20,20,19,.55);display:flex;align-items:flex-end;justify-content:center}
+.sheet{width:100%;max-width:440px;background:var(--paper);padding:28px 24px calc(28px + env(safe-area-inset-bottom,0px));max-height:85vh;overflow:auto}
+.sheet h3{font-family:var(--serif);font-weight:400;font-size:18px;margin:0 0 18px;text-align:center}
+.sheet .grp{font-size:12px;letter-spacing:.14em;color:var(--ink-3);margin:18px 0 6px}
+.person{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--rule);font-size:14px}
+.person .acts{display:flex;gap:6px}
+.person .acts a{border:1px solid var(--rule);padding:5px 10px;font-size:12px;color:var(--ink);text-decoration:none}
+.close{margin-top:20px}
+.viewer{position:fixed;inset:0;z-index:60;background:#111;display:flex;align-items:center;justify-content:center}
+.viewer img{max-height:88vh;max-width:100%;object-fit:contain}
+.viewer .vp{color:#888;font-family:var(--latin);font-size:40px}
+.viewer button{position:absolute;appearance:none;border:0;background:none;color:#fff;font-size:28px;padding:16px;cursor:pointer;font-family:var(--latin)}
+.viewer .x{top:env(safe-area-inset-top,0px);right:0}
+.viewer .pv{left:0;top:50%;transform:translateY(-50%)}
+.viewer .nx{right:0;top:50%;transform:translateY(-50%)}
+.viewer .idx{position:absolute;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:0;right:0;text-align:center;color:#aaa;font-family:var(--latin);letter-spacing:.2em}
+.toast{position:fixed;left:50%;bottom:calc(28px + env(safe-area-inset-bottom,0px));transform:translate(-50%,12px);background:var(--ink);color:var(--paper);font-size:13px;padding:9px 16px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:70}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){.reveal,.toast{transition:none}.scroll{animation:none}}
+</style>
+</head>
+<body>
+<div class="paper">
+
+<!-- 표지: 사진은 images/cover.jpg 로 올리면 자동으로 표시됩니다 -->
+<section class="cover">
+  <div class="photo"><span class="ph-note">대표 사진 자리</span><img src="images/cover.jpg" alt="" onerror="this.remove()" onload="this.previousElementSibling.remove()"></div>
+  <div class="top">WEDDING DAY</div>
+  <div class="bottom">
+    <div class="bigdate">03<i>/</i>07</div>
+    <h1>봄날, 우리 결혼합니다</h1>
+    <div class="meta">2027. 3. 7. 일요일 <span class="ph">오후 0시</span> · 상록아트홀</div>
+  </div>
+  <span class="scroll" aria-hidden="true"></span>
+</section>
+
+<section class="reveal">
+  <div class="names"><span class="ph">신랑 이름</span><i>&amp;</i><span class="ph">신부 이름</span></div>
+  <p class="namesub">2027년 3월 7일 일요일 <span class="ph">오후 0시</span><br>상록아트홀</p>
+</section>
+
+<section class="alt reveal">
+  <svg class="sprig" viewBox="0 0 28 40" aria-hidden="true"><path d="M14 40V8" stroke="#1f1f1e" stroke-width="1" fill="none"/><path d="M14 22c-6-1-9-6-9-11 5 1 9 5 9 11zM14 15c5-1 8-5 8-10-5 1-8 4-8 10z" fill="none" stroke="#1f1f1e" stroke-width="1"/></svg>
+  <h2>Invitation</h2>
+  <p class="h2-ko">소중한 분들을 초대합니다</p>
+  <p class="poem">겨울의 끝자락에서 봄이 움트듯<br>저희 두 사람도<br>새로운 계절을 시작하려 합니다.<br><br>꽃이 피기 시작하는<br>삼월의 첫 일요일,<br>귀한 걸음으로 함께해 주시면<br>감사하겠습니다.</p>
+  <div class="family">
+    <div class="row"><span class="ph">신랑 아버지</span>·<span class="ph">신랑 어머니</span><span class="rel">의 <span class="ph">장남</span></span><b class="ph">신랑</b></div>
+    <div class="row"><span class="ph">신부 아버지</span>·<span class="ph">신부 어머니</span><span class="rel">의 <span class="ph">장녀</span></span><b class="ph">신부</b></div>
+  </div>
+  <div class="btns"><button class="btn" type="button" data-open="contact">연락하기</button></div>
+</section>
+
+<section class="reveal">
+  <h2>Wedding Day</h2>
+  <p class="h2-ko">예식 일시</p>
+  <p class="when">2027년 3월 7일 일요일 <span class="ph">오후 0시</span><small>상록아트홀</small></p>
+  <div class="cal" aria-label="2027년 3월 달력, 7일 예식">
+    <div class="cal-month">MARCH</div>
+    <div class="cal-grid" id="cal"></div>
+  </div>
+  <div class="count" id="count" aria-hidden="true"></div>
+  <p class="dday" id="dday"></p>
+</section>
+
+<!-- 갤러리: images/01.jpg ~ 06.jpg 로 올리면 자동으로 표시됩니다 -->
+<section class="alt reveal">
+  <h2>Gallery</h2>
+  <p class="h2-ko">우리의 봄</p>
+  <div class="gal" id="gal"></div>
+  <p class="note">사진을 누르면 크게 볼 수 있어요</p>
+</section>
+
+<section class="reveal">
+  <h2>Location</h2>
+  <p class="h2-ko">오시는 길</p>
+  <div class="map">
+  <svg viewBox="0 0 640 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="상록아트홀 약도: 선릉역 5번 출구에서 테헤란로를 따라 역삼역 방향">
+    <defs><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#222" stroke-width="2"/></pattern></defs>
+    <rect width="640" height="500" fill="#fff"/>
+    <g fill="none">
+      <g stroke="#333" stroke-width="16"><path d="M200 40 V420"/><path d="M72 300 H568"/><path d="M500 40 V350"/><path d="M350 40 V130 H500"/><path d="M130 470 V420 H566"/></g>
+      <g stroke="#fff" stroke-width="13"><path d="M200 38 V420"/><path d="M70 300 H570"/><path d="M500 38 V352"/><path d="M350 38 V130 H500"/><path d="M130 472 V420 H568"/></g>
+      <g stroke="#fff" stroke-width="18"><path d="M200 30 V38"/><path d="M500 30 V38"/><path d="M350 30 V38"/><path d="M500 352 V360"/><path d="M130 472 V480"/><path d="M62 300 H70"/><path d="M570 300 H578"/><path d="M568 420 H576"/></g>
+    </g>
+    <g font-size="16" text-anchor="middle">
+      <rect x="4" y="286" width="64" height="28" fill="#fff" stroke="#333" stroke-width="1.3"/><text x="36" y="306">역삼역</text>
+      <rect x="570" y="286" width="64" height="28" fill="#fff" stroke="#333" stroke-width="1.3"/><text x="602" y="306">삼성동</text>
+      <rect x="566" y="406" width="72" height="28" fill="#fff" stroke="#333" stroke-width="1.3"/><text x="602" y="426">가락시장</text>
+    </g>
+    <g font-size="14">
+      <text x="200" y="24" text-anchor="middle" style="fill:#777">↑ 성수대교</text>
+      <text x="186" y="372" text-anchor="end" style="fill:#777">매봉터널</text>
+      <text x="410" y="328" text-anchor="middle" style="fill:#777">테헤란로</text>
+      <text x="330" y="448" text-anchor="middle" style="fill:#777">남부순환로</text>
+      <text x="116" y="410" text-anchor="end" style="fill:#777">양재대로</text>
+      <text x="130" y="496" text-anchor="middle" style="fill:#777">양재IC</text>
+    </g>
+    <rect x="218" y="140" width="50" height="60" fill="url(#hatch)" stroke="#222" stroke-width="1.5"/>
+    <text x="280" y="170" font-size="23" font-weight="700" style="fill:#111">상록아트홀</text>
+    <text x="280" y="192" font-size="15" style="fill:#666">(상록회관)</text>
+    <g font-size="16">
+      <circle cx="226" cy="232" r="3.2" fill="#333"/><text x="235" y="238">국민은행</text>
+      <circle cx="226" cy="268" r="3.2" fill="#333"/><text x="235" y="274">우리은행</text>
+      <circle cx="318" cy="268" r="3.2" fill="#333"/><text x="327" y="274">한국기술센터</text>
+      <circle cx="184" cy="150" r="3.2" fill="#333"/><text x="175" y="156" text-anchor="end">KT 강남지사</text>
+      <circle cx="184" cy="240" r="3.2" fill="#333"/><text x="175" y="246" text-anchor="end">조선팰리스</text>
+      <circle cx="478" cy="196" r="3.2" fill="#333"/><text x="469" y="202" text-anchor="end">신한은행</text>
+      <circle cx="478" cy="234" r="3.2" fill="#333"/><text x="469" y="240" text-anchor="end">아남타워</text>
+    </g>
+    <g font-size="9" font-weight="700" text-anchor="middle">
+      <rect x="148" y="164" width="30" height="16" rx="3" fill="#333"/><text x="163" y="175.5" style="fill:#fff">BUS</text>
+      <rect x="303" y="312" width="30" height="16" rx="3" fill="#333"/><text x="318" y="323.5" style="fill:#fff">BUS</text>
+    </g>
+    <circle cx="500" cy="300" r="17" fill="#333"/>
+    <text x="500" y="306" font-size="16" font-weight="700" text-anchor="middle" style="fill:#fff">2</text>
+    <text x="524" y="338" font-size="17" font-weight="500">선릉역</text>
+    <circle cx="481" cy="277" r="8.5" fill="#fff" stroke="#333" stroke-width="1.4"/>
+    <text x="481" y="282" font-size="12" font-weight="700" text-anchor="middle">5</text>
+    <path d="M488 271 L518 246" stroke="#333" stroke-width="1" fill="none"/>
+    <text x="520" y="222" font-size="13" style="fill:#777">2호선·수인분당선</text>
+    <text x="520" y="243" font-size="16" font-weight="700">선릉역 5번 출구</text>
+  </svg>
+  </div>
+  <p class="venue">상록아트홀<small>(서울상록회관)</small></p>
+  <p class="addr">서울특별시 강남구 언주로 508<br>Tel. 02-564-5757</p>
+  <div class="btns">
+    <a class="btn" href="https://map.naver.com/p/search/%EC%83%81%EB%A1%9D%EC%95%84%ED%8A%B8%ED%99%80" target="_blank" rel="noopener">네이버 지도</a>
+    <a class="btn" href="https://map.kakao.com/link/search/%EC%83%81%EB%A1%9D%EC%95%84%ED%8A%B8%ED%99%80" target="_blank" rel="noopener">카카오맵</a>
+    <a class="btn" href="https://apis.openapi.sk.com/tmap/app/routes?goalname=%EC%83%81%EB%A1%9D%EC%95%84%ED%8A%B8%ED%99%80" target="_blank" rel="noopener">티맵</a>
+    <button class="btn ghost" type="button" data-copy="서울특별시 강남구 언주로 508" data-msg="주소를 복사했어요">주소 복사</button>
+  </div>
+  <div class="info">
+    <div class="r"><div class="l">지하철</div><div class="c">2호선 / 수인분당선 <b>선릉역 5번 출구</b> 도보 5분</div></div>
+    <div class="r"><div class="l">셔틀버스</div><div class="c">선릉역 5번 출구에서 수시 운행</div></div>
+    <div class="r"><div class="l">버스</div><div class="c">
+      <div class="stop"><b>KT 강남지사 하차</b><br><span class="chip">간선</span>141, 242, 361</div>
+      <div class="stop"><b>한국기술센터 · 상록회관 하차</b><br><span class="chip">간선</span>146, 341, 360, 740, N13, N61</div>
+    </div></div>
+    <div class="r"><div class="l">자가용</div><div class="c">내비게이션 ‘서울상록회관’ 또는 ‘언주로 508’ 입력<br><span class="sub">경부고속도로 양재IC 진입 후 양재대로에서 매봉터널, 강남세브란스병원 방면으로 직진</span></div></div>
+    <div class="r"><div class="l">주차</div><div class="c">건물 내 주차 가능 · <span class="ph">무료 주차 시간 확인 필요</span></div></div>
+  </div>
+</section>
+
+<section class="alt reveal">
+  <h2>R.S.V.P.</h2>
+  <p class="h2-ko">참석 의사 전달</p>
+  <div class="rsvp-box">
+    <p>축하의 마음으로 참석해 주시는 분들을<br>정성껏 모실 수 있도록<br>참석 여부를 알려주세요.</p>
+    <div class="btns"><a class="btn fill" id="rsvp" href="#" target="_blank" rel="noopener">참석 의사 전달하기</a></div>
+  </div>
+</section>
+
+<section class="reveal">
+  <h2>With Heart</h2>
+  <p class="h2-ko">마음 전하실 곳</p>
+  <p class="note" style="margin:-16px 0 24px">참석이 어려우신 분들을 위해 기재했습니다.<br>너그러운 마음으로 양해 부탁드립니다.</p>
+  <div class="acc">
+    <details>
+      <summary>신랑측 계좌번호</summary>
+      <div class="acct"><div><div class="who">신랑 <span class="ph">이름</span></div><span class="ph">은행 000-0000-0000</span></div><button class="btn" type="button" data-copy="" data-msg="계좌번호를 복사했어요">복사</button></div>
+      <div class="acct"><div><div class="who">아버지 <span class="ph">이름</span></div><span class="ph">은행 000-0000-0000</span></div><button class="btn" type="button" data-copy="" data-msg="계좌번호를 복사했어요">복사</button></div>
+      <div class="acct"><div><div class="who">어머니 <span class="ph">이름</span></div><span class="ph">은행 000-0000-0000</span></div><button class="btn" type="button" data-copy="" data-msg="계좌번호를 복사했어요">복사</button></div>
+    </details>
+    <details>
+      <summary>신부측 계좌번호</summary>
+      <div class="acct"><div><div class="who">신부 <span class="ph">이름</span></div><span class="ph">은행 000-0000-0000</span></div><button class="btn" type="button" data-copy="" data-msg="계좌번호를 복사했어요">복사</button></div>
+      <div class="acct"><div><div class="who">아버지 <span class="ph">이름</span></div><span class="ph">은행 000-0000-0000</span></div><button class="btn" type="button" data-copy="" data-msg="계좌번호를 복사했어요">복사</button></div>
+      <div class="acct"><div><div class="who">어머니 <span class="ph">이름</span></div><span class="ph">은행 000-0000-0000</span></div><button class="btn" type="button" data-copy="" data-msg="계좌번호를 복사했어요">복사</button></div>
+    </details>
+  </div>
+</section>
+
+<section class="alt end reveal">
+  <p>봄의 첫 페이지를<br>함께 열어 주셔서 감사합니다.</p>
+  <div class="btns">
+    <button class="btn" type="button" id="share">공유하기</button>
+    <button class="btn" type="button" id="copylink">링크 복사</button>
+  </div>
+</section>
+<footer>2027 · 03 · 07</footer>
+</div>
+
+<!-- 연락하기 -->
+<div class="modal" id="contact" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="ct-t">
+    <h3 id="ct-t">연락하기</h3>
+    <div class="grp">신랑측</div>
+    <div class="person"><span>신랑 <span class="ph">이름</span></span><span class="acts"><a href="tel:">전화</a><a href="sms:">문자</a></span></div>
+    <div class="person"><span>아버지 <span class="ph">이름</span></span><span class="acts"><a href="tel:">전화</a><a href="sms:">문자</a></span></div>
+    <div class="person"><span>어머니 <span class="ph">이름</span></span><span class="acts"><a href="tel:">전화</a><a href="sms:">문자</a></span></div>
+    <div class="grp">신부측</div>
+    <div class="person"><span>신부 <span class="ph">이름</span></span><span class="acts"><a href="tel:">전화</a><a href="sms:">문자</a></span></div>
+    <div class="person"><span>아버지 <span class="ph">이름</span></span><span class="acts"><a href="tel:">전화</a><a href="sms:">문자</a></span></div>
+    <div class="person"><span>어머니 <span class="ph">이름</span></span><span class="acts"><a href="tel:">전화</a><a href="sms:">문자</a></span></div>
+    <button class="btn wide close" type="button" data-close>닫기</button>
+  </div>
+</div>
+
+<!-- 사진 크게 보기 -->
+<div class="viewer" id="viewer" hidden>
+  <div id="vimg"></div>
+  <button class="x" type="button" aria-label="닫기" data-close>×</button>
+  <button class="pv" type="button" aria-label="이전 사진">‹</button>
+  <button class="nx" type="button" aria-label="다음 사진">›</button>
+  <div class="idx" id="vidx"></div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+// ===== 여기만 바꾸면 됩니다 =====
+var GALLERY_COUNT = 6;          // images/01.jpg ~ 06.jpg
+var RSVP_URL = '';              // 구글 폼 등 참석 여부 받을 주소
+// ===============================
+(function(){
+  // 달력 (2027년 3월 1일은 월요일)
+  var cal=document.getElementById('cal'),h='';
+  ['일','월','화','수','목','금','토'].forEach(function(d,i){h+='<div class="dow'+(i===0?' sun':'')+'">'+d+'</div>'});
+  var start=new Date(2027,2,1).getDay();
+  for(var i=0;i<start;i++)h+='<div></div>';
+  for(var d=1;d<=31;d++){var dow=(start+d-1)%7;h+='<div class="day'+(dow===0?' sun':'')+(d===7?' on':'')+'"><span>'+d+'</span></div>'}
+  cal.innerHTML=h;
+
+  // 디데이
+  var target=new Date(2027,2,7);
+  function tick(){
+    var now=new Date(),today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+    var days=Math.round((target-today)/864e5),dd=document.getElementById('dday');
+    dd.innerHTML=days>0?'두 사람의 결혼식이 <b>'+days+'</b>일 남았습니다':days===0?'오늘, 두 사람이 결혼합니다':'두 사람이 함께한 지 <b>'+(-days)+'</b>일째입니다';
+    var s=Math.floor(Math.max(0,target-now)/1000);
+    var parts=[[Math.floor(s/86400),'DAYS'],[Math.floor(s%86400/3600),'HOUR'],[Math.floor(s%3600/60),'MIN'],[s%60,'SEC']];
+    document.getElementById('count').innerHTML=parts.map(function(p){return '<div><strong>'+String(p[0]).padStart(2,'0')+'</strong><em>'+p[1]+'</em></div>'}).join('');
+  }
+  tick();setInterval(tick,1000);
+
+  // 갤러리 + 크게 보기
+  var gal=document.getElementById('gal'),srcs=[];
+  for(var g=1;g<=GALLERY_COUNT;g++){
+    var n=String(g).padStart(2,'0'),src='images/'+n+'.jpg';srcs.push(src);
+    var b=document.createElement('button');b.type='button';b.dataset.i=g-1;b.setAttribute('aria-label',g+'번 사진 크게 보기');
+    b.innerHTML='<span>'+g+'</span><img src="'+src+'" alt="" loading="lazy" onerror="this.remove()">';
+    gal.appendChild(b);
+  }
+  var viewer=document.getElementById('viewer'),vimg=document.getElementById('vimg'),vidx=document.getElementById('vidx'),cur=0,tx=null;
+  function show(i){cur=(i+srcs.length)%srcs.length;vimg.innerHTML='<img src="'+srcs[cur]+'" alt="" onerror="this.outerHTML=\'<span class=vp>'+(cur+1)+'</span>\'">';vidx.textContent=(cur+1)+' / '+srcs.length}
+  gal.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;show(+b.dataset.i);viewer.hidden=false;document.body.style.overflow='hidden'});
+  viewer.querySelector('.pv').onclick=function(){show(cur-1)};
+  viewer.querySelector('.nx').onclick=function(){show(cur+1)};
+  viewer.addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
+  viewer.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)show(cur+(dx<0?1:-1));tx=null});
+
+  // 모달 열고 닫기
+  function closeAll(){document.querySelectorAll('.modal,.viewer').forEach(function(m){m.hidden=true});document.body.style.overflow=''}
+  document.addEventListener('click',function(e){
+    var o=e.target.closest('[data-open]');if(o){document.getElementById(o.dataset.open).hidden=false;document.body.style.overflow='hidden';return}
+    if(e.target.closest('[data-close]')||e.target.classList.contains('modal'))closeAll();
+    var c=e.target.closest('[data-copy]');if(c){if(!c.dataset.copy){toast('아직 준비 중이에요');return}copy(c.dataset.copy,c.dataset.msg)}
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();if(!viewer.hidden&&e.key==='ArrowRight')show(cur+1);if(!viewer.hidden&&e.key==='ArrowLeft')show(cur-1)});
+
+  // 참석 의사
+  var rsvp=document.getElementById('rsvp');
+  if(RSVP_URL)rsvp.href=RSVP_URL;else rsvp.addEventListener('click',function(e){e.preventDefault();toast('참석 여부 받기는 곧 열려요')});
+
+  // 복사·공유
+  var tEl=document.getElementById('toast'),tt;
+  function toast(m){tEl.textContent=m;tEl.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){tEl.classList.remove('show')},1800)}
+  function copy(text,msg){
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){toast(msg)},function(){fallback(text,msg)})}else fallback(text,msg);
+  }
+  function fallback(text,msg){var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast(msg)}catch(e){toast('복사가 안 돼요. 길게 눌러 직접 복사해 주세요')}ta.remove()}
+  var url=location.href.split('#')[0];
+  document.getElementById('copylink').onclick=function(){copy(url,'청첩장 링크를 복사했어요')};
+  document.getElementById('share').onclick=function(){
+    if(navigator.share)navigator.share({title:'봄날, 우리 결혼합니다',text:'2027년 3월 7일 일요일 · 상록아트홀',url:url}).catch(function(){});
+    else copy(url,'청첩장 링크를 복사했어요');
+  };
+
+  // 스크롤하면 천천히 나타나기 (처음엔 보이는 상태, 화면 아래쪽 섹션만 숨김)
+  if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.remove('hide');io.unobserve(en.target)}})},{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el){if(el.getBoundingClientRect().top>innerHeight){el.classList.add('hide');io.observe(el)}});
+  }
+})();
+</script>
+</body>
+</html>
