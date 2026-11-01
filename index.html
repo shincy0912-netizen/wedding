@@ -43,7 +43,7 @@ p{margin:0}
 .cover{position:relative;padding:0;background:var(--paper);color:var(--ink)}
 .cover .photo{position:relative;background:var(--wash)}
 .cover .photo img{display:block;width:100%;height:auto}
-.cover .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(251,251,249,.55) 0%,rgba(251,251,249,0) 26%)}
+.cover .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(251,251,249,.8) 0%,rgba(251,251,249,.55) 14%,rgba(251,251,249,0) 30%)}
 .cover .head{position:absolute;z-index:1;top:calc(26px + env(safe-area-inset-top,0px));left:0;right:0;display:grid;gap:8px;padding:0 24px}
 .cover .bigdate{font-family:var(--latin);font-weight:400;font-size:46px;line-height:1;letter-spacing:.06em}
 .cover .bigdate i{font-style:italic;font-size:.6em;vertical-align:.25em;margin:0 .15em;color:var(--ink-2)}
@@ -71,6 +71,8 @@ p{margin:0}
 .btn.fill{background:var(--ink);color:var(--paper)}
 .btn.ghost{border-color:var(--rule)}
 
+.navs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:20px}
+.navs .btn{justify-content:center;padding:10px 2px;font-size:12.5px;white-space:nowrap}
 /* 달력 */
 .when{font-family:var(--serif);font-size:17px;line-height:1.9}
 .when small{display:block;font-family:var(--sans);font-size:13.5px;color:var(--ink-2)}
@@ -172,9 +174,9 @@ footer{padding:28px 16px 40px;text-align:center;font-family:var(--latin);font-si
 <body>
 <div class="paper">
 
-<!-- 표지: images/cover.jpg -->
+<!-- 표지 메인 사진: images/main.jpg (카톡 썸네일은 og.jpg 바다 사진) -->
 <section class="cover">
-  <div class="photo"><img src="images/cover.jpg?v=3" width="1342" height="2000" alt="제주 바닷가 모래 위에 27.3.7을 적고 앉아 있는 신랑 신부"></div>
+  <div class="photo"><img src="images/main.jpg?v=4" width="1333" height="2000" alt="숲길 도로 위에서 손을 잡고 선 신랑 신부"></div>
   <div class="head">
     <div class="bigdate">03<i>/</i>07</div>
     <h1>봄날, 우리 결혼합니다</h1>
@@ -269,11 +271,11 @@ footer{padding:28px 16px 40px;text-align:center;font-family:var(--latin);font-si
   </div>
   <p class="venue">상록아트홀 5층 아트홀<small>(서울상록회관)</small></p>
   <p class="addr">서울특별시 강남구 언주로 508<br>Tel. 02-564-5757</p>
-  <div class="btns">
+  <div class="navs">
     <a class="btn" href="https://map.naver.com/p/search/%EC%83%81%EB%A1%9D%EC%95%84%ED%8A%B8%ED%99%80" target="_blank" rel="noopener">네이버 지도</a>
-    <a class="btn" href="https://map.kakao.com/link/search/%EC%83%81%EB%A1%9D%EC%95%84%ED%8A%B8%ED%99%80" target="_blank" rel="noopener">카카오맵</a>
     <a class="btn" href="tmap://search?name=%EC%83%81%EB%A1%9D%EC%95%84%ED%8A%B8%ED%99%80" id="tmap">티맵</a>
-    <button class="btn ghost" type="button" data-copy="서울특별시 강남구 언주로 508" data-msg="주소를 복사했어요">주소 복사</button>
+    <a class="btn" href="https://map.kakao.com/link/search/%EC%83%81%EB%A1%9D%EC%95%84%ED%8A%B8%ED%99%80" target="_blank" rel="noopener">카카오맵</a>
+    <button class="btn" type="button" data-copy="서울특별시 강남구 언주로 508" data-msg="주소를 복사했어요">주소 복사</button>
   </div>
   <div class="info">
     <div class="r"><div class="l">지하철</div><div class="c">2호선 / 수인분당선 <b>선릉역 5번 출구</b> 도보 5분</div></div>
@@ -360,7 +362,7 @@ footer{padding:28px 16px 40px;text-align:center;font-family:var(--latin);font-si
 <script>
 // ===== 여기만 바꾸면 됩니다 =====
 var GALLERY_COUNT = 9;          // images/01.jpg ~ 09.jpg (썸네일 t_01.jpg ~)
-var RSVP_URL = '';              // 구글 폼 등 참석 여부 받을 주소
+var RSVP_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSc7h8CQqF88eNU5bpTkrGZw8vYWyU4d9gT9mCeSRgRYX7eNNg/viewform';              // 구글 폼 등 참석 여부 받을 주소
 // ===============================
 (function(){
   // 달력 (2027년 3월 1일은 월요일)

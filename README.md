@@ -4,6 +4,6 @@
 
 - 사이트: https://shincy0912-netizen.github.io/wedding/
 - 페이지: `index.html`
-- 사진: `images/` (`cover.jpg` 표지, `01.jpg`~`09.jpg` 갤러리, `t_*.jpg` 썸네일)
+- 사진: `images/` (`main.jpg` 표지 메인 사진, `cover.jpg` 바다 사진(카톡 썸네일 원본), `01.jpg`~`09.jpg` 갤러리, `t_*.jpg` 썸네일)
 - 카톡 미리보기 이미지: `og.jpg`
 - `청첩장/` 은 예전 주소로 들어온 사람을 새 주소로 보내는 용도입니다.
