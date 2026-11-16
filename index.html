@@ -94,7 +94,11 @@ p{margin:0}
 .dday b{font-family:var(--latin);font-weight:500;font-size:20px;color:var(--ink);margin:0 2px}
 
 /* 갤러리 */
-.gal{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.gal-part{margin-top:28px}
+.gal-part+.gal-part{margin-top:44px}
+.gal-t{font-family:var(--latin);font-size:15px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-2);margin:0 0 14px;display:flex;align-items:center;gap:12px}
+.gal-t::before,.gal-t::after{content:"";flex:1;height:1px;background:var(--rule)}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
 .gal button{appearance:none;border:0;padding:0;margin:0;aspect-ratio:2/3;background:var(--wash);position:relative;cursor:zoom-in;overflow:hidden;font-family:var(--latin);color:var(--ph);font-size:15px}
 .alt .gal button{background:#e4e4e0}
 .gal button img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -215,7 +219,7 @@ footer{padding:28px 16px 40px;text-align:center;font-family:var(--latin);font-si
 <!-- 갤러리: images/01.jpg ~ 06.jpg 로 올리면 자동으로 표시됩니다 -->
 <section class="alt reveal">
   <h2>Gallery</h2>
-  <div class="gal" id="gal"></div>
+  <div id="gals"></div>
   <p class="note">사진을 누르면 크게 볼 수 있어요</p>
 </section>
 
@@ -317,7 +321,11 @@ footer{padding:28px 16px 40px;text-align:center;font-family:var(--latin);font-si
 
 <script>
 // ===== 여기만 바꾸면 됩니다 =====
-var GALLERY_COUNT = 9;          // images/01.jpg ~ 09.jpg (썸네일 t_01.jpg ~)
+// 갤러리 코너: 제목(title)과 사진 장수(count)만 바꾸면 됩니다. 사진이 0장인 코너는 숨겨집니다.
+var GALLERIES = [
+  { title: 'Seoul', dir: 'images/seoul/', count: 0 },   // 스튜디오: images/seoul/01.jpg ~, 썸네일 t_01.jpg ~
+  { title: 'Jeju',  dir: 'images/',       count: 9 }    // 제주: images/01.jpg ~ 09.jpg
+];
 var RSVP_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSc7h8CQqF88eNU5bpTkrGZw8vYWyU4d9gT9mCeSRgRYX7eNNg/viewform';              // 구글 폼 등 참석 여부 받을 주소
 // ===============================
 (function(){
@@ -342,16 +350,23 @@ var RSVP_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSc7h8CQqF88eNU5bpTkrGZw
   tick();setInterval(tick,1000);
 
   // 갤러리 + 크게 보기
-  var gal=document.getElementById('gal'),srcs=[];
-  for(var g=1;g<=GALLERY_COUNT;g++){
-    var n=String(g).padStart(2,'0'),src='images/'+n+'.jpg?v=5';srcs.push(src);
-    var b=document.createElement('button');b.type='button';b.dataset.i=g-1;b.setAttribute('aria-label',g+'번 사진 크게 보기');
-    b.innerHTML='<span>'+g+'</span><img src="images/t_'+n+'.jpg?v=5" alt="" loading="lazy" onerror="this.remove()">';
-    gal.appendChild(b);
-  }
+  var gals=document.getElementById('gals'),srcs=[];
+  var shown=GALLERIES.filter(function(G){return G.count>0});
+  shown.forEach(function(G){
+    var part=document.createElement('div');part.className='gal-part';
+    if(shown.length>1){var t=document.createElement('p');t.className='gal-t';t.textContent=G.title;part.appendChild(t)}
+    var grid=document.createElement('div');grid.className='gal';
+    for(var g=1;g<=G.count;g++){
+      var n=String(g).padStart(2,'0'),i=srcs.length;srcs.push(G.dir+n+'.jpg?v=5');
+      var b=document.createElement('button');b.type='button';b.dataset.i=i;b.setAttribute('aria-label',G.title+' '+g+'번 사진 크게 보기');
+      b.innerHTML='<span>'+g+'</span><img src="'+G.dir+'t_'+n+'.jpg?v=5" alt="" loading="lazy" onerror="this.remove()">';
+      grid.appendChild(b);
+    }
+    part.appendChild(grid);gals.appendChild(part);
+  });
   var viewer=document.getElementById('viewer'),vimg=document.getElementById('vimg'),vidx=document.getElementById('vidx'),cur=0,tx=null;
   function show(i){cur=(i+srcs.length)%srcs.length;vimg.innerHTML='<img src="'+srcs[cur]+'" alt="" onerror="this.outerHTML=\'<span class=vp>'+(cur+1)+'</span>\'">';vidx.textContent=(cur+1)+' / '+srcs.length}
-  gal.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;show(+b.dataset.i);viewer.hidden=false;document.body.style.overflow='hidden'});
+  gals.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;show(+b.dataset.i);viewer.hidden=false;document.body.style.overflow='hidden'});
   viewer.querySelector('.pv').onclick=function(){show(cur-1)};
   viewer.querySelector('.nx').onclick=function(){show(cur+1)};
   viewer.addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
