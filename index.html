@@ -96,10 +96,11 @@ p{margin:0}
 .dday b{font-family:var(--latin);font-weight:500;font-size:20px;color:var(--ink);margin:0 2px}
 
 /* 갤러리 */
-.gal-part{margin-top:28px}
-.gal-part+.gal-part{margin-top:44px}
-.gal-t{font-family:var(--serif);font-size:15px;letter-spacing:.12em;color:var(--ink-2);margin:0 0 14px;display:flex;align-items:center;gap:12px}
-.gal-t::before,.gal-t::after{content:"";flex:1;height:1px;background:var(--rule)}
+.gal-tabs{display:flex;justify-content:center;gap:28px;margin:22px 0 20px}
+.gal-tab{appearance:none;background:none;border:0;border-bottom:1px solid transparent;padding:4px 2px;cursor:pointer;font-family:var(--latin);font-size:17px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-3)}
+.gal-tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink)}
+.gal-tab:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+#gals>.gal:first-child{margin-top:28px}
 .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
 .gal button{appearance:none;border:0;padding:0;margin:0;aspect-ratio:2/3;background:var(--wash);position:relative;cursor:zoom-in;overflow:hidden;font-family:var(--latin);color:var(--ph);font-size:15px}
 .alt .gal button{background:#e4e4e0}
@@ -323,10 +324,10 @@ footer{padding:28px 16px 40px;text-align:center;font-family:var(--latin);font-si
 
 <script>
 // ===== 여기만 바꾸면 됩니다 =====
-// 갤러리 코너: 제목(title)과 사진 장수(count)만 바꾸면 됩니다. 사진이 0장인 코너는 숨겨집니다.
+// 갤러리 탭: 탭 이름(tab)과 사진 장수(count)만 바꾸면 됩니다. 사진이 0장인 탭은 숨겨집니다.
 var GALLERIES = [
-  { title: '서울에서 우리', dir: 'images/seoul/', count: 12 },  // 스튜디오: images/seoul/01.jpg ~ 12.jpg
-  { title: '제주에서 우리', dir: 'images/',       count: 9 }    // 제주: images/01.jpg ~ 09.jpg
+  { tab: 'Seoul', title: '서울에서 우리', dir: 'images/seoul/', count: 12 },  // 스튜디오: images/seoul/01.jpg ~ 12.jpg
+  { tab: 'Jeju',  title: '제주에서 우리', dir: 'images/',       count: 9 }    // 제주: images/01.jpg ~ 09.jpg
 ];
 var RSVP_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSc7h8CQqF88eNU5bpTkrGZw8vYWyU4d9gT9mCeSRgRYX7eNNg/viewform';              // 구글 폼 등 참석 여부 받을 주소
 // ===============================
@@ -352,23 +353,31 @@ var RSVP_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSc7h8CQqF88eNU5bpTkrGZw
   tick();setInterval(tick,1000);
 
   // 갤러리 + 크게 보기
-  var gals=document.getElementById('gals'),srcs=[];
+  var gals=document.getElementById('gals'),sets=[],active=0;
   var shown=GALLERIES.filter(function(G){return G.count>0});
-  shown.forEach(function(G){
-    var part=document.createElement('div');part.className='gal-part';
-    if(shown.length>1){var t=document.createElement('p');t.className='gal-t';t.textContent=G.title;part.appendChild(t)}
-    var grid=document.createElement('div');grid.className='gal';
+  var tabs=document.createElement('div');tabs.className='gal-tabs';tabs.setAttribute('role','tablist');
+  if(shown.length>1)gals.appendChild(tabs);
+  shown.forEach(function(G,k){
+    var list=[];sets.push(list);
+    var tb=document.createElement('button');tb.type='button';tb.className='gal-tab';tb.textContent=G.tab||G.title;
+    tb.setAttribute('role','tab');tb.setAttribute('aria-selected',k===0?'true':'false');tb.dataset.k=k;tabs.appendChild(tb);
+    var grid=document.createElement('div');grid.className='gal';grid.setAttribute('role','tabpanel');grid.dataset.k=k;if(k>0)grid.hidden=true;
     for(var g=1;g<=G.count;g++){
-      var n=String(g).padStart(2,'0'),i=srcs.length;srcs.push(G.dir+n+'.jpg?v=5');
-      var b=document.createElement('button');b.type='button';b.dataset.i=i;b.setAttribute('aria-label',G.title+' '+g+'번 사진 크게 보기');
-      b.innerHTML='<span>'+g+'</span><img src="'+G.dir+'t_'+n+'.jpg?v=5" alt="" loading="lazy" onerror="this.remove()">';
+      var n=String(g).padStart(2,'0');list.push(G.dir+n+'.jpg?v=5');
+      var b=document.createElement('button');b.type='button';b.dataset.i=g-1;b.setAttribute('aria-label',(G.tab||G.title)+' '+g+'번 사진 크게 보기');
+      b.innerHTML='<span>'+g+'</span><img src="'+G.dir+'t_'+n+'.jpg?v=5" alt="" loading="'+(k===0?'lazy':'eager')+'" onerror="this.remove()">';
       grid.appendChild(b);
     }
-    part.appendChild(grid);gals.appendChild(part);
+    gals.appendChild(grid);
+  });
+  tabs.addEventListener('click',function(e){
+    var tb=e.target.closest('.gal-tab');if(!tb)return;active=+tb.dataset.k;
+    tabs.querySelectorAll('.gal-tab').forEach(function(x){x.setAttribute('aria-selected',x===tb?'true':'false')});
+    gals.querySelectorAll('.gal').forEach(function(gr){gr.hidden=(+gr.dataset.k!==active)});
   });
   var viewer=document.getElementById('viewer'),vimg=document.getElementById('vimg'),vidx=document.getElementById('vidx'),cur=0,tx=null;
-  function show(i){cur=(i+srcs.length)%srcs.length;vimg.innerHTML='<img src="'+srcs[cur]+'" alt="" onerror="this.outerHTML=\'<span class=vp>'+(cur+1)+'</span>\'">';vidx.textContent=(cur+1)+' / '+srcs.length}
-  gals.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;show(+b.dataset.i);viewer.hidden=false;document.body.style.overflow='hidden'});
+  function show(i){var L=sets[active];cur=(i+L.length)%L.length;vimg.innerHTML='<img src="'+L[cur]+'" alt="" onerror="this.outerHTML=\'<span class=vp>'+(cur+1)+'</span>\'">';vidx.textContent=(cur+1)+' / '+L.length}
+  gals.addEventListener('click',function(e){var b=e.target.closest('.gal button');if(!b)return;show(+b.dataset.i);viewer.hidden=false;document.body.style.overflow='hidden'});
   viewer.querySelector('.pv').onclick=function(){show(cur-1)};
   viewer.querySelector('.nx').onclick=function(){show(cur+1)};
   viewer.addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
