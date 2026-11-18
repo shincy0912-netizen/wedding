@@ -171,7 +171,8 @@ footer{padding:28px 16px 40px;text-align:center;font-family:var(--latin);font-si
 .person .acts .ico svg{width:17px;height:17px;fill:none;stroke:var(--ink);stroke-width:1.4;stroke-linejoin:round}
 .person .acts a,.person .acts .mini{border:1px solid var(--rule);padding:5px 10px;font-size:12px;color:var(--ink);text-decoration:none}
 .close{margin-top:20px}
-.viewer{position:fixed;inset:0;z-index:60;background:#111;display:flex;align-items:center;justify-content:center}
+.viewer{position:fixed;inset:0;z-index:60;background:#111;display:flex;align-items:center;justify-content:center;touch-action:none;-webkit-user-select:none;user-select:none}
+.viewer img{-webkit-touch-callout:none;-webkit-user-drag:none;pointer-events:none}
 #vimg{width:100%;display:flex;justify-content:center;align-items:center}
 .viewer img{max-height:100vh;max-height:100dvh;max-width:100%;object-fit:contain}
 .viewer .vp{color:#888;font-family:var(--latin);font-size:40px}
@@ -399,7 +400,12 @@ var RSVP_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSc7h8CQqF88eNU5bpTkrGZw
   gals.addEventListener('click',function(e){var b=e.target.closest('.gal button');if(!b)return;show(+b.dataset.i);viewer.hidden=false;document.body.style.overflow='hidden'});
   viewer.querySelector('.pv').onclick=function(){show(cur-1)};
   viewer.querySelector('.nx').onclick=function(){show(cur+1)};
-  viewer.addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
+  viewer.addEventListener('touchstart',function(e){if(e.touches.length>1){e.preventDefault();tx=null;return}tx=e.touches[0].clientX},{passive:false});
+  // 확대 화면에서는 손가락 확대·두 번 탭 확대를 막음
+  viewer.addEventListener('touchmove',function(e){e.preventDefault()},{passive:false});
+  ['gesturestart','gesturechange','gestureend','dblclick'].forEach(function(t){viewer.addEventListener(t,function(e){e.preventDefault()},{passive:false})});
+  viewer.addEventListener('wheel',function(e){if(e.ctrlKey)e.preventDefault()},{passive:false});
+  viewer.addEventListener('contextmenu',function(e){e.preventDefault()});
   viewer.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)show(cur+(dx<0?1:-1));tx=null});
 
   // 모달 열고 닫기
