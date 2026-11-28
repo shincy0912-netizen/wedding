@@ -342,7 +342,7 @@ footer{padding:28px 16px 40px;text-align:center;font-family:var(--latin);font-si
 // 갤러리 탭: 탭 이름(tab)과 사진 장수(count)만 바꾸면 됩니다. 사진이 0장인 탭은 숨겨집니다.
 var GALLERIES = [
   { tab: 'Seoul', title: '서울에서 우리', dir: 'images/seoul/', count: 12 },  // 스튜디오: images/seoul/01.jpg ~ 12.jpg
-  { tab: 'Jeju',  title: '제주에서 우리', dir: 'images/jeju/',  count: 12 }   // 제주: images/jeju/01.jpg ~ 12.jpg
+  { tab: 'Jeju',  title: '제주에서 우리', dir: 'images/jeju/',  count: 9 }    // 제주: images/jeju/01.jpg ~ 09.jpg
 ];
 var RSVP_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSc7h8CQqF88eNU5bpTkrGZw8vYWyU4d9gT9mCeSRgRYX7eNNg/viewform';              // 구글 폼 등 참석 여부 받을 주소
 // ===============================
@@ -378,9 +378,9 @@ var RSVP_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSc7h8CQqF88eNU5bpTkrGZw
     tb.setAttribute('role','tab');tb.setAttribute('aria-selected',k===0?'true':'false');tb.dataset.k=k;tabs.appendChild(tb);
     var grid=document.createElement('div');grid.className='gal';grid.setAttribute('role','tabpanel');grid.dataset.k=k;if(k>0)grid.hidden=true;
     for(var g=1;g<=G.count;g++){
-      var n=String(g).padStart(2,'0');list.push(G.dir+n+'.jpg?v=10');
+      var n=String(g).padStart(2,'0');list.push(G.dir+n+'.jpg?v=11');
       var b=document.createElement('button');b.type='button';b.dataset.i=g-1;b.setAttribute('aria-label',(G.tab||G.title)+' '+g+'번 사진 크게 보기');
-      b.innerHTML='<span>'+g+'</span><img src="'+G.dir+'t_'+n+'.jpg?v=10" alt="" loading="'+(k===0?'lazy':'eager')+'" onerror="this.remove()">';
+      b.innerHTML='<span>'+g+'</span><img src="'+G.dir+'t_'+n+'.jpg?v=11" alt="" loading="'+(k===0?'lazy':'eager')+'" onerror="this.remove()">';
       grid.appendChild(b);
     }
     gals.appendChild(grid);
