@@ -378,9 +378,9 @@ var RSVP_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSc7h8CQqF88eNU5bpTkrGZw
     tb.setAttribute('role','tab');tb.setAttribute('aria-selected',k===0?'true':'false');tb.dataset.k=k;tabs.appendChild(tb);
     var grid=document.createElement('div');grid.className='gal';grid.setAttribute('role','tabpanel');grid.dataset.k=k;if(k>0)grid.hidden=true;
     for(var g=1;g<=G.count;g++){
-      var n=String(g).padStart(2,'0');list.push(G.dir+n+'.jpg?v=9');
+      var n=String(g).padStart(2,'0');list.push(G.dir+n+'.jpg?v=10');
       var b=document.createElement('button');b.type='button';b.dataset.i=g-1;b.setAttribute('aria-label',(G.tab||G.title)+' '+g+'번 사진 크게 보기');
-      b.innerHTML='<span>'+g+'</span><img src="'+G.dir+'t_'+n+'.jpg?v=9" alt="" loading="'+(k===0?'lazy':'eager')+'" onerror="this.remove()">';
+      b.innerHTML='<span>'+g+'</span><img src="'+G.dir+'t_'+n+'.jpg?v=10" alt="" loading="'+(k===0?'lazy':'eager')+'" onerror="this.remove()">';
       grid.appendChild(b);
     }
     gals.appendChild(grid);
